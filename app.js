@@ -2,6 +2,8 @@
 const loginForm = document.getElementById('login-form');
 const loginInput = loginForm.querySelector('input');
 const loginButton = loginForm.querySelector('button');
+
+const loginButton = document.querySelector('#login-form button');
 */
 
 /*
@@ -14,11 +16,17 @@ if(userName === ''){ //빈값일 경우
 */
 
 
+const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
-const loginButton = document.querySelector('#login-form button');
 
-function onLiginBtnClick (){
+
+function onLoginSubmit (e){ //event object를 argument로 주고 있음.
+    e.preventDefault(); //기본동작 막기
     const userName = loginInput.value;
+
+    console.log(userName);
 }
 
-loginButton.addEventListener('click', onLiginBtnClick);
+// submit: 엔터를 누르거나 버튼을 클릭할 때 발생
+loginForm.addEventListener('submit', onLoginSubmit);
+
