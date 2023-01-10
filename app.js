@@ -19,6 +19,11 @@ if(userName === ''){ //빈값일 경우
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 
+const link = document.querySelector('a');
+
+console.log(link)
+
+
 
 function onLoginSubmit (e){ //event object를 argument로 주고 있음.
     e.preventDefault(); //기본동작 막기
@@ -27,6 +32,12 @@ function onLoginSubmit (e){ //event object를 argument로 주고 있음.
     console.log(userName);
 }
 
+function handleLinkClick (e){
+    e.preventDefault();
+    console.log(e);
+}
+
 // submit: 엔터를 누르거나 버튼을 클릭할 때 발생
 loginForm.addEventListener('submit', onLoginSubmit);
+link.addEventListener('click', handleLinkClick);
 
