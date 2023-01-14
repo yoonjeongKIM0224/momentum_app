@@ -28,11 +28,11 @@ const USERNAME_KEY = 'userName';
 function onLoginSubmit (e){ //event object를 argument로 주고 있음.
     e.preventDefault(); //기본동작 막기
     loginForm.classList.add(HIDDEN_CLASSNAME); // form을 숨김
-    const userName = loginInput.value; // 유저의 이름 저장
-    greetingOpen(userName);
+    const typedUserName = loginInput.value; // 유저의 이름 저장
+    paintGreeting(typedUserName);
     
     // 브라우저에서 뭔가를 기억할 수 있게 해주는 기능(localStorage)
-    localStorage.setItem(USERNAME_KEY, userName); //key, value
+    localStorage.setItem(USERNAME_KEY, typedUserName); //key, value
 }
 
 function paintGreeting (userName){
@@ -41,7 +41,7 @@ function paintGreeting (userName){
 }
 
 /* -------------------- */
-const savedUserName = localStorage.getItem('userName');
+const savedUserName = localStorage.getItem(USERNAME_KEY);
 
 // localStorage가 비어있으면 form을 보여주되, 정보가 있으면 form을 숨김
 if(savedUserName === null) {
